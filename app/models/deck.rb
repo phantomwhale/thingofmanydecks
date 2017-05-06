@@ -6,4 +6,7 @@ class Deck < ApplicationRecord
     drawn_card.delete
     drawn_card
   end
+
+  def shuffle
+  end
 end
