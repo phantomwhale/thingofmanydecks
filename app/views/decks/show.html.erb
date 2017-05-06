@@ -8,5 +8,5 @@
 <% end %>
 
 <div class="actions">
-    <%= button_to "Draw card", deck_draw_path(@deck.id) %>
+    <%= button_to "Draw card", deck_draw_path(@deck.id), disabled:  @deck.cards.empty? %>
 </div>

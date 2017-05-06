@@ -13,4 +13,12 @@ RSpec.feature 'Deck actions' do
     expect(page).to have_text(first_card.name)
     expect(page).to have_text("Card count: #{card_count - 1}")
   end
+
+  scenario 'Deck is empty' do
+    deck = create :deck_with_no_cards
+
+    visit "/decks/#{deck.id}"
+
+    expect(page).to have_button('Draw card', disabled: true)
+  end
 end

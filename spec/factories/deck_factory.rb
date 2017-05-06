@@ -3,6 +3,9 @@ FactoryGirl.define do
     name "deck name"
     description "deck description"
 
+    factory :deck_with_no_cards do
+    end
+
     factory :deck_with_cards do
       transient do
         card_count 5
