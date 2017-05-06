@@ -2,3 +2,11 @@
 
 <p><%= @deck.description %></p>
 <p>Card count: <%= @deck.cards.count %></p>
+
+<% if @card.present? %>
+    <p>Card drawn: <%= @card.name %></p>
+<% end %>
+
+<div class="actions">
+    <%= button_to "Draw card", deck_draw_path(@deck.id) %>
+</div>

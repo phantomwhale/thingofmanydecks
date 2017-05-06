@@ -15,4 +15,10 @@ class DecksController < ApplicationController
       redirect_to @deck, notice: "Deck was successfully created"
     end
   end
+
+  def draw
+    @deck = Deck.find(params[:deck_id])
+    @card = @deck.draw
+    render :show
+  end
 end
