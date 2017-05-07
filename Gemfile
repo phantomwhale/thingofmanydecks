@@ -34,9 +34,7 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-# Lets try reform for form objects
-gem 'reform-rails'
-
+gem 'virtus'
 gem 'acts_as_list'
 
 group :development, :test do
@@ -45,6 +43,7 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13.0'
   gem 'factory_girl_rails'
+  gem 'pry'
   gem 'rspec-rails'
   gem 'selenium-webdriver'
 end

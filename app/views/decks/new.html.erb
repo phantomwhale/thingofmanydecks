@@ -1,6 +1,6 @@
 <h2>Create new deck</h2>
 
-<%= form_for @deck do |form| %>
+<%= form_for @deck, url: decks_path do |form| %>
     <div class="input">
         <%= form.label :name %>
         <%= form.text_field :name %>

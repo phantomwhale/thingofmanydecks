@@ -1,6 +1,6 @@
 class DecksController < ApplicationController
   def new
-    @deck = DeckForm.new(Deck.new)
+    @deck = DeckForm.new
   end
 
   def show
@@ -8,11 +8,14 @@ class DecksController < ApplicationController
   end
 
   def create
-    @deck = DeckForm.new(Deck.new)
+    @deck = DeckForm.new(deck_params)
 
-    if @deck.validate(params[:deck])
+    if @deck.valid?
       @deck.save
-      redirect_to @deck, notice: "Deck was successfully created"
+      @deck.model.cards.shuffle!
+      redirect_to @deck.model, notice: "Deck was successfully created"
+    else
+      render 'new'
     end
   end
 
@@ -20,5 +23,11 @@ class DecksController < ApplicationController
     @deck = Deck.find(params[:deck_id])
     @card = @deck.draw
     render :show
+  end
+
+  private
+
+  def deck_params
+    params.require(:deck_form).permit(:name, :description, :cards)
   end
 end
