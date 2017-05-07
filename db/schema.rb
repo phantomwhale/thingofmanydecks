@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170506143546) do
+ActiveRecord::Schema.define(version: 20170507023114) do
 
   create_table "cards", force: :cascade do |t|
     t.string "name"
@@ -27,7 +27,9 @@ ActiveRecord::Schema.define(version: 20170506143546) do
     t.integer "game_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "share_token"
     t.index ["game_id"], name: "index_decks_on_game_id"
+    t.index ["share_token"], name: "index_decks_on_share_token", unique: true
   end
 
   create_table "games", force: :cascade do |t|

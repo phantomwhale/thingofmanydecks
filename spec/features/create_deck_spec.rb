@@ -19,5 +19,9 @@ RSpec.feature 'Deck creation' do
 
     expect(page).to have_text('Deck was successfully created')
     expect(page).to have_text('Card count: 52')
+
+    click_link('Game link')
+
+    expect(page).to have_text('Card count: 52')
   end
 end

@@ -1,12 +1,12 @@
 require 'rails_helper'
 
-RSpec.feature 'Deck actions' do
-  scenario 'Draw card' do
+RSpec.feature 'Game actions' do
+  scenario 'Draw a card' do
     deck = create :deck_with_cards
     first_card = deck.cards.first
     card_count = deck.cards.count
 
-    visit "/decks/#{deck.id}"
+    visit "/games/#{deck.share_token}"
 
     click_button 'Draw card'
 
@@ -17,7 +17,7 @@ RSpec.feature 'Deck actions' do
   scenario 'Deck is empty' do
     deck = create :deck_with_no_cards
 
-    visit "/decks/#{deck.id}"
+    visit "/games/#{deck.share_token}"
 
     expect(page).to have_button('Draw card', disabled: true)
   end

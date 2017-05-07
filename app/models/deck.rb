@@ -1,4 +1,6 @@
 class Deck < ApplicationRecord
+  has_secure_token :share_token
+
   has_many :cards, -> { order(position: :asc) } do
     def shuffle!
       sql = ''

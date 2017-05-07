@@ -1,0 +1,10 @@
+<%= render "decks/deck_summary", deck: @deck %>
+
+<% if @card.present? %>
+    <br/>
+    <p>Card drawn: <%= @card.name %></p>
+<% end %>
+
+<div class="actions">
+    <%= button_to "Draw card", game_draw_path(@deck.share_token), disabled:  @deck.cards.empty? %>
+</div>

@@ -19,12 +19,6 @@ class DecksController < ApplicationController
     end
   end
 
-  def draw
-    @deck = Deck.find(params[:deck_id])
-    @card = @deck.draw
-    render :show
-  end
-
   private
 
   def deck_params
