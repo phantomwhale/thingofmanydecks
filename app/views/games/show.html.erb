@@ -8,5 +8,5 @@
 <% if @card.present? %>
     <hr/>
     <p>Card drawn: <%= @card.name %></p>
-    <%= image_tag @card.name %>
+    <%= image_tag @card.name if Rails.application.assets_manifest.assets[@card.name].present? %>
 <% end %>
