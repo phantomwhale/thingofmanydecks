@@ -37,6 +37,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'virtus'
 gem 'acts_as_list'
 
+gem 'semantic-ui-sass', git: 'https://github.com/doabit/semantic-ui-sass.git'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

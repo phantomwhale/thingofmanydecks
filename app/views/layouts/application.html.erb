@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Thingofmanydecks</title>
-    <%= csrf_meta_tags %>
+    <head>
+        <title>Thingofmanydecks</title>
+        <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    </head>
 
-  <body>
-    <h1>Thing of many decks</h1>
-    <% flash.each do |name, msg| -%>
-        <%= content_tag :div, msg, class: name %>
-    <% end -%>
-    <%= yield %>
-  </body>
+    <body>
+        <div class="ui container">
+            <h1 class="ui headers">Thing of many decks</h1>
+            <% flash.each do |name, msg| -%>
+                <div class="ui positive message">
+                    <%= content_tag :p, msg %>
+                </div>
+            <% end -%>
+            <%= yield %>
+        </div>
+    </body>
 </html>

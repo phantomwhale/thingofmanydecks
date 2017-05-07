@@ -1,12 +1,18 @@
 <%= render "decks/deck_summary", deck: @deck %>
 
-<div class="actions">
-    <%= button_to "Draw card", game_draw_path(@deck.share_token), disabled: @deck.cards.empty? %>
-    <%= button_to "Shuffle deck", game_shuffle_path(@deck.share_token), disabled: @deck.cards.empty? %>
+<div class="actions ui four column grid">
+    <div class="row">
+        <%= button_to "Draw card", 
+            game_draw_path(@deck.share_token), 
+            disabled: @deck.cards.empty?, 
+            class: "ui button",
+            form_class: "column" %>
+        <%= button_to "Shuffle deck", game_shuffle_path(@deck.share_token), disabled: @deck.cards.empty?, class: "ui button" %>
+    </div>
 </div>
 
 <% if @card.present? %>
     <hr/>
     <p>Card drawn: <%= @card.name %></p>
-    <%= image_tag @card.name if Rails.application.assets_manifest.assets[@card.name].present? %>
+    <%= image_tag @card.name if Rails.application.assets.find_asset @card.name%>
 <% end %>

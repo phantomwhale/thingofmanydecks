@@ -1,19 +1,19 @@
 <h2>Create new deck</h2>
 
-<%= form_for @deck, url: decks_path do |form| %>
-    <div class="input">
+<%= form_for @deck, url: decks_path, html: { class: "ui form" } do |form| %>
+    <div class="field">
         <%= form.label :name %>
         <%= form.text_field :name %>
     </div>
-    <div class="input">
+    <div class="field">
         <%= form.label :description %>
         <%= form.text_field :description %>
     </div>
-    <div class="input">
+    <div class="field">
         <%= form.label :cards %>
         <%= form.text_area :cards %>
     </div>
-    <div class="input">
-        <%= form.submit %>
+    <div class="field">
+        <%= form.submit class: "ui button" %>
     </div>
 <% end %>
