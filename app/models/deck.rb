@@ -7,7 +7,8 @@ class Deck < ApplicationRecord
       pluck(:id).shuffle.each_with_index do |id, index|
         sql += "when (id=#{id}) then #{index + 1} "
       end
-      sql = ['postition=case', sql, 'end'].join(' ')
+      sql = ['position=case', sql, 'end'].join(' ')
+      update_all(sql)
     end
   end
 
