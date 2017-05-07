@@ -4,5 +4,6 @@ Rails.application.routes.draw do
 
   resources :games, only: [:show] do
     post :draw
+    post :shuffle
   end
 end
