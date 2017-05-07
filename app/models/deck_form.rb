@@ -25,8 +25,18 @@ class DeckForm
 
   def persist!
     @deck = Deck.create!(name: name, description: description)
-    cards.split("\n").map do |card_name|
-      @deck.cards << Card.create(name: card_name)
+    cards.each_line.map do |card_name|
+      @deck.cards << create_cards_from(card_name.chomp)
+    end
+  end
+
+  def create_cards_from(card_name)
+    if match = /^(\d+)x(.*)/.match(card_name)
+      Array.new(match[1].to_i) do
+        Card.new(name: match[2])
+      end
+    else
+      Card.new(name: card_name)
     end
   end
 end
